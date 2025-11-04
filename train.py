@@ -81,7 +81,7 @@ print(args)
 tokenizer = PreTrainedTokenizerFast(tokenizer_object=tokenizer)
 trainer = Trainer(
     model=model,
-    tokenizer=tokenizer,
+    tokenizer=PreTrainedTokenizerFast(tokenizer_object=tokenizer),
     args=args,
     data_collator=data_collator,
     train_dataset=datasets["train"],

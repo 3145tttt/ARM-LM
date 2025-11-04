@@ -30,7 +30,7 @@ class GenerationLoggerCallback(TrainerCallback):
                     # Generate text
                     output = model.generate(
                         input_ids,
-                        max_length=50,
+                        max_length=380,
                         num_return_sequences=1,
                         temperature=0.8,
                         do_sample=True,
