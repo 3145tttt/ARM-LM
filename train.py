@@ -19,14 +19,13 @@ from src.util import set_global_seed, is_bf16_supported
 
 data_path = "./data/hye_wikipedia_2021_1M/cleaned_corpus_for_training.txt"
 base_conf = ConfigDict()
-base_conf.seed = 42
 base_conf.vocab_size = 88
-base_conf.max_steps = 20000
-
-
-base_conf.context_length = 256
 base_conf.n_embd = 768
 base_conf.n_layer = 12
+base_conf.max_steps = 40000
+
+base_conf.seed = 42
+base_conf.context_length = 256
 
 base_conf.batch_size = 64
 base_conf.gradient_accumulation_steps = 1
@@ -78,7 +77,6 @@ args = TrainingArguments(
 
 print(args)
 
-tokenizer = PreTrainedTokenizerFast(tokenizer_object=tokenizer)
 trainer = Trainer(
     model=model,
     tokenizer=PreTrainedTokenizerFast(tokenizer_object=tokenizer),
